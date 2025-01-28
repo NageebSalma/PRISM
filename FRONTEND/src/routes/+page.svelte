@@ -274,7 +274,7 @@
     justify-content: center;
     flex-direction: column;
     color: rgb(246, 245, 245);
-    height: 60vh;
+    height: 70vh;
     width: 80vw;
     border-color: #ffffff;
     background-color: rgb(212, 212, 212);

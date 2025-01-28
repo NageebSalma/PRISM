@@ -121,7 +121,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 60vh;
+    height:70vh;
     width: 80vw;
   }
   iframe {
