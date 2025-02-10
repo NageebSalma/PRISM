@@ -1,5 +1,5 @@
 import cv2 #open cv for extracting and analysing frames.
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 print('frame_handling.py')
 

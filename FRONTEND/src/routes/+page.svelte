@@ -62,7 +62,7 @@
         number_of_dominant_colors: 3,
       };
       current_state = states[1];
-      const vid_response = await fetch("http://localhost:8001/video", {
+      const vid_response = await fetch("https://o2ee2e949j.execute-api.us-east-1.amazonaws.com/production/video", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -83,7 +83,7 @@
     try {
       user_input_2.timestamp = currentTime + "";
       current_state = states[3];
-      const response = await fetch("http://localhost:8001/colors", {
+      const response = await fetch("https://o2ee2e949j.execute-api.us-east-1.amazonaws.com/production/colors", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

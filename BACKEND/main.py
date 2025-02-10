@@ -1,6 +1,6 @@
 #uvicorn main:app
-import numpy as np
-import json
+# import numpy as np
+# import json
 from video_parsing import get_video_information
 from frame_handling import get_frame
 from color_extraction import KMeans_clustering
@@ -10,12 +10,17 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 
+from mangum import Mangum
+
+
 app = FastAPI()
+handler = Mangum(app)
+
 
 # Allow CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # Allow your frontend's origin
+    allow_origins=["*"],  # Allow your frontend's origin
     allow_credentials=True,
     allow_methods=["*"],  # Allow all HTTP methods
     allow_headers=["*"],  # Allow all HTTP headers
@@ -32,7 +37,9 @@ class UserInput2(BaseModel):
     number_of_dominant_colors: int
     
     
-
+@app.get('/hi')
+async def hello():
+    return {'message': 'Hello, welcome!'}
   
 @app.post("/colors")
 async def show_colors(user_input : UserInput2):
@@ -62,19 +69,5 @@ def npfloat32_to_float(list_of_lists):
     print(new_list)
     return new_list
     
-    
-    
-    
-# if __name__ == '__main__':
-#     input_ = {
-#         'youtube_video_link' : 'https://www.youtube.com/watch?v=ox0hG51uQcs',
-#         'timestamp' : '0:07',
-#         'number_of_dominant_colors' : 10
-#     }
-    
-#     result = post_(input_)
-    
-#     print(result['colors'])
-#     show(result['image'] , result['colors'])
     
     
